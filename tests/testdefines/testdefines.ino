@@ -1,6 +1,7 @@
 /* Example of how to access XMC defines and use for debug
  *  
  *  Updated 8-Feb-2020 Paul Carpenter
+ *  Updated 1-Jul-2020 Paul Carpenter - Prepare architecture change to xmc
  */
 // Linker symbols to get flash/RAM usage
 #if( UC_FAMILY == XMC1 )
