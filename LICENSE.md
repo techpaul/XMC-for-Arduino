@@ -14,8 +14,6 @@ the information in the respective files.
 
 This repository comprises several licenses dependent on the sources of the files.
 
-### Main directory
-* /arm/
 
 ### Arduino Core
 * Directory: /cores/
