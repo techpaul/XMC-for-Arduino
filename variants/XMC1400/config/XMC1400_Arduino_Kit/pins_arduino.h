@@ -30,7 +30,7 @@
 //****************************************************************************
 // @Defines
 //****************************************************************************
-#define XMC_BOARD           XMC 1400 Boot Kit
+#define XMC_BOARD           XMC 1400 Arduino Kit
 
 /* On board LED is ON when digital output is 0, LOW, FALSE, OFF */
 #define  XMC_LED_ON         0 
@@ -42,6 +42,9 @@
 #define NUM_SERIAL          1
 #define NUM_TONE_PINS       4
 #define NUM_TASKS_VARIANT   8
+
+// Indicate unit has RTC/Alarm for simpler RTC control
+#define HAS_RTC
 
 // Defines will be either set by ArduinoIDE in the menu or manually
 #ifdef SERIAL_HOSTPC
@@ -56,7 +59,7 @@
 
 #define PWM4_TIMER_PERIOD (2041U)  // Generate 490Hz @fCCU=1MHz
 
-#define PCLK 96000000u 
+#define PCLK 48000000u 
  
 #define PIN_SPI_SS    10
 #define PIN_SPI_MOSI  11
@@ -70,11 +73,9 @@
 #define A4   4
 #define A5   5
 
-#define LED_BUILTIN LED1  
+#define LED_BUILTIN 13  
 #define LED1        24  
 #define LED2        25  
-#define LED3        26   
-#define LED4        27   
 
 #define EXT_INTR_0  2
 #define EXT_INTR_1  3
@@ -129,10 +130,10 @@ const XMC_PORT_PIN_t mapping_port_pin[] =
     /* 10  */   {XMC_GPIO_PORT0 , 9}, // SPI-SS                             P0.9
     /* 11  */   {XMC_GPIO_PORT1 , 1}, // SPI-MOSI                           P1.1
     /* 12  */   {XMC_GPIO_PORT1 , 0}, // SPI-MISO                           P1.0
-    /* 13  */   {XMC_GPIO_PORT0 , 7}, // SPI-SCK                            P0.7   
+    /* 13  */   {XMC_GPIO_PORT0 , 3}, // SPI-SCK                            P0.3 
     /* 14  */   {XMC_GPIO_PORT2 , 3}, // AREF                               P2.3 (INPUT ONLY)
-    /* 15  */   {XMC_GPIO_PORT2 , 1}, // I2C Data / Address SDA             P2.1
-    /* 16  */   {XMC_GPIO_PORT2 , 0}, // I2C Clock SCL                      P2.0
+    /* 15  */   {XMC_GPIO_PORT2 , 1}, // I2C Data / Address SDA / A7  ADC   P2.1
+    /* 16  */   {XMC_GPIO_PORT2 , 0}, // I2C Clock SCL / A6  ADC            P2.0
     /* 17  */   {XMC_GPIO_PORT2 , 6}, // A0 / ADC Input                     P2.6 (INPUT ONLY)
     /* 18  */   {XMC_GPIO_PORT2 , 8}, // A1 / ADC Input                     P2.8 (INPUT ONLY)
     /* 19  */   {XMC_GPIO_PORT2 , 9}, // A2 / ADC Input                     P2.9 (INPUT ONLY)
